@@ -1,51 +1,121 @@
 public class MyStack {
     int size = 100;
-    String[] arr = new String[size];
+    String [] arr = new String[size];
     int top = -1;
-    public void push(String p){
-        if (size <= top + 1){
-            System.out.println("Stack overflow");
-            return;
-        } 
 
-        arr[++top] = p;
+    public void push(String element){
+        if (top + 1 >= size){
+            System.out.println("Stack Over flow ");
+            return;
+        }
+        arr[++top] = element;
+        return;
     }
 
-    public void pop(){
+    public String peek(){
+        if (top == -1){
+            return "Stack is Empty";
+        }
+        return arr[top];
+    }
+
+    public void pop (){
         if (top == -1){
             System.out.println("List is empty");
             return;
         }
         top--;
     }
-    public String peek(){
-        if (top == -1){
-            return "Nothing Here";
-        }
-        return arr[top];
-    }
 
-    public void printList(){
-        System.out.print("[ ");
+    public void printStack(){
+        System.out.print(" [ ");
         for (int i = 0; i <= top; i++){
-            System.out.print(arr[i] );
-            System.out.print(", " );
+            System.out.print(arr[i]);
+            System.out.print(",");
         }
-        System.out.print(" ]");
+        System.out.println(" ]");
     }
-        public static void main(String args[]){
+    public static void main(String[] args) {
         MyStack data = new MyStack();
-        data.pop();
-        for (int i = 0; i <= 99; i++){
+        for (int i = 1; i <= 100; i++){
             data.push("Data " + i);
         }
-        data.push("Data 99");
-        // data.push("Data 100");
+        // data.push("Data 101");
         data.pop();
-        System.out.println(data.peek());
-        data.printList();
+        data.pop();
+        data.pop();
+        System.out.print(data.peek());
+        // data.printStack();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// public class MyStack {
+//     int size = 100;
+//     String[] arr = new String[size];
+//     int top = -1;
+//     public void push(String p){
+//         if (size <= top + 1){
+//             System.out.println("Stack overflow");
+//             return;
+//         } 
+
+//         arr[++top] = p;
+//     }
+
+//     public void pop(){
+//         if (top == -1){
+//             System.out.println("List is empty");
+//             return;
+//         }
+//         top--;
+//     }
+//     public String peek(){
+//         if (top == -1){
+//             return "Nothing Here";
+//         }
+//         return arr[top];
+//     }
+
+//     public void printList(){
+//         System.out.print("[ ");
+//         for (int i = 0; i <= top; i++){
+//             System.out.print(arr[i] );
+//             System.out.print(", " );
+//         }
+//         System.out.print(" ]");
+//     }
+//         public static void main(String args[]){
+//         MyStack data = new MyStack();
+//         data.pop();
+//         for (int i = 0; i <= 99; i++){
+//             data.push("Data " + i);
+//         }
+//         data.push("Data 99");
+//         // data.push("Data 100");
+//         data.pop();
+//         System.out.println(data.peek());
+//         data.printList();
+//     }
+// }
 
 
 
