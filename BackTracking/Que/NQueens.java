@@ -7,7 +7,6 @@ public class NQueens {
     public static void main(String[] args) {
         int n = 4;  // Change this to any N
         List<List<String>> board = new ArrayList<>();
-        
         // Initialize the board with '.' (empty spaces) for each row
         for (int i = 0; i < n; i++) {
             List<String> row = new ArrayList<>();
@@ -17,7 +16,6 @@ public class NQueens {
             }
             board.add(row);
         }
-
         solveNQueen(board, 0, n);
     }
 
@@ -32,10 +30,8 @@ public class NQueens {
         for (int col = 0; col < n; col++) {
             if (isSafe(board, row, col, n)) {
                 board.get(row).set(col, "Q"); // Place queen at (row, col)
-
                 // Recur to place the rest of the queens
                 solveNQueen(board, row + 1, n);
-
                 board.get(row).set(col, "."); // Backtrack: Remove the queen
             }
         }
