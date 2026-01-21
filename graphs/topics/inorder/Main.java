@@ -1,7 +1,9 @@
+package topics.inorder;
 
-// import java.util.Queue;
+import java.util.Queue;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.List;
 
@@ -38,6 +40,23 @@ class Graph {
             System.out.println();
         }
     }
+
+    public void inorder(String start) {
+        Queue<String> q = new LinkedList<>();
+        Map<String, Boolean> v = new HashMap<>();
+        q.add(start);
+        v.put(start, true);
+        while (!q.isEmpty()) {
+            String node = q.poll(); // current node
+            System.err.print(node);
+            for (Pair i : graph.get(node)) {
+                if (!v.getOrDefault(i.node, false)) {
+                    q.add(i.node);
+                    v.put(i.node, true);
+                }
+            }
+        }
+    }
 }
 
 public class Main {
@@ -53,7 +72,8 @@ public class Main {
         g.addEdge("C", "F", 5);
         g.addEdge("G", "F", 5);
         g.addEdge("F", "E", 1);
+
         // g.printGraph();
-        g.printGraph();
+        g.inorder("A");
     }
 }
