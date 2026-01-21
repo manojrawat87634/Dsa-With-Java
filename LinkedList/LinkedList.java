@@ -13,12 +13,10 @@ public class LinkedList {
 
     void insertAtHead(String value) {
         Node newNode = new Node(value);
-
         if (head == null) {
             head = newNode;
             return;
         }
-
         newNode.next = head;
         head = newNode;
     }
@@ -41,7 +39,7 @@ public class LinkedList {
             System.out.println("Invalid Index");
             return;
         }
-        if (index == 0){
+        if (index == 0) {
             insertAtHead(value);
             return;
         }
