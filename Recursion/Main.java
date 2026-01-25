@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-
 public class Main {
     public static void printNum(int n){
         if (n == 10){

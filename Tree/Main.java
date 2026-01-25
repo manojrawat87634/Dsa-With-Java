@@ -20,11 +20,9 @@ public class Main {
         }
 
         Node root = new Node(arr[index]);
-
         // Recursively construct children
         root.left = buildTree(arr, 2 * index + 1);
         root.right = buildTree(arr, 2 * index + 2);
-
         return root;
     }
 
