@@ -1,14 +1,16 @@
 import java.util.Scanner;
 
-public class Ans9 {
+public class Ans5 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter temperature in Fahrenheit: ");
-        double fahrenheit = sc.nextDouble();
+        double temp = sc.nextDouble();
 
-        double celsius = (fahrenheit - 32) * 5 / 9;
-        System.out.println("Temperature in Celsius = " + celsius);
+        if (temp > 100.4)
+            System.out.println("Fever");
+        else
+            System.out.println("Normal");
 
         sc.close();
     }
