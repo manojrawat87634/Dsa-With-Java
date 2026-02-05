@@ -5,7 +5,7 @@ class Main {
         short s = 100;
         int i = 1000;
         long l = 10000L;
-        float f = 3.14f;
+        float f = 3.123f;
         double d = 3.14159;
         char c = 'A';
         boolean flag = true;
