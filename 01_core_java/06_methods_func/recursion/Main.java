@@ -1,4 +1,3 @@
-package recursion;
 
 public class Main {
     static void prNum(int num){
@@ -17,10 +16,16 @@ public class Main {
         if (n == 2) return 1;
         return fib(n - 1) + fib(n - 2);
     }
-    static int sum(int num){
-        if (num == 1) return 1;
-        return num + sum(num - 1);
+    
+    static int sum(int n){
+        if (n == 1) return 1;
+        return n + sum(n - 1); 
     }
+
+    // s(n) => n + s(n - 1)
+    // s(10) => 10 + 9 + 8 + 7 + 6 + 5 + 4 + 3 + 2 + 1;
+    // s(1) => 1 
+
      static void factors(int num, int i){
         if (num < i) return; 
         if (num % i == 0){
@@ -38,6 +43,7 @@ public class Main {
         // System.out.println(fact(5));
         // System.out.println(sum(10));
         // System.out.println(fib(10));
-        factors(24, 2);
+        // factors(24, 2);
+        System.out.println(sum(10));
     }
 }
