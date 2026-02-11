@@ -1,4 +1,4 @@
-class Main {
+class SumOf2dArr {
     public static void main(String[] args) {
         int arr [][] = { 
             {3, 5, 6},

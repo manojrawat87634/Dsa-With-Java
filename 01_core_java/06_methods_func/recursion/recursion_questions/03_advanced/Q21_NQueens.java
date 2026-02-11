@@ -6,7 +6,6 @@ public class Q21_NQueens {
         for (int i = 0; i < n; i++) {
             Arrays.fill(board[i], '.');
         }
-
         backTrack(board, 0);
     }
 
