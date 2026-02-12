@@ -10,7 +10,6 @@ public class Main {
         System.out.println("a & b  = " + (a & b));   // AND
         System.out.println("a | b  = " + (a | b));   // OR
         System.out.println("a ^ b  = " + (a ^ b));   // XOR
-        System.out.println("~a     = " + (~a));      // NOT
 
         System.out.println("a << 1 = " + (a << 1));  // Left shift
         System.out.println("a >> 1 = " + (a >> 1));  // Right shift
