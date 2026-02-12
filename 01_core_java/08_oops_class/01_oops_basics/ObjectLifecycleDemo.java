@@ -9,11 +9,6 @@ class Laptop {
     void use() {
         System.out.println(model + " is in use");
     }
-
-    @Override
-    protected void finalize() {
-        System.out.println(model + " destroyed");
-    }
 }
 
 public class ObjectLifecycleDemo {
@@ -21,7 +16,7 @@ public class ObjectLifecycleDemo {
         Laptop l1 = new Laptop("Dell");
         l1.use();
 
-        l1 = null;        // object eligible for GC
-        System.gc();      // request garbage collection
+        // l1 = null;        // object eligible for GC
+        // System.gc();      // request garbage collection
     }
 }
