@@ -1,29 +1,21 @@
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 
-public class T_04ByteStreamDemo {
-
+public class T_04ByteStreamDemo{
     public static void main(String[] args) {
-        String sourceFile = "t.jpg";
-        String destFile = "copy.jpg";
         try {
-            FileInputStream fis = new FileInputStream(sourceFile);
-            FileOutputStream fos = new FileOutputStream(destFile);
-
-            int b;
-            while ((b = fis.read()) != -1) {
-                fos.write(b);
+            FileInputStream fis = new FileInputStream("abc.jpg");
+            FileOutputStream fos = new FileOutputStream("c.jpg");
+            int data = fis.read();
+            while (data != -1){
+                fos.write(data);
+                data = fis.read();
             }
-
             fis.close();
             fos.close();
-
-            System.out.println("Image copied successfully!");
-
-        } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("File Copied Successfully!!!");
+        } catch (Exception e) {
+            System.out.println("File Not copied");
         }
-
     }
 }

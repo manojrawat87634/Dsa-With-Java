@@ -1,58 +1,33 @@
-import java.util.Comparator;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-class Product {
-    String name;
-    double price;
-    double rating;
+class Student implements Comparable<Student> {
+    int marks;
 
-    Product(String name, double price, double rating) {
-        this.name = name;
-        this.price = price;
-        this.rating = rating;
+    Student(int marks) {
+        this.marks = marks;
     }
 
-    public String toString() {
-        return name + " | Price: " + price + " | Rating: " + rating;
+    @Override
+    public int compareTo(Student s) {
+        return this.marks - s.marks;  // ascending
     }
 }
-
-
-class PriceComparator implements Comparator<Product> {
-    public int compare(Product p1, Product p2) {
-        return Double.compare(p1.price, p2.price);
-    }
-}
-class RatingComparator implements Comparator<Product> {
-    public int compare(Product p1, Product p2) {
-        return Double.compare(p2.rating, p1.rating);
-    }
-}
-
 
 public class Main {
     public static void main(String[] args) {
+          List<Student> studentList = new ArrayList<>();
 
-        List<Product> products = new ArrayList<>();
+        studentList.add(new Student(80));
+        studentList.add(new Student(50));
+        studentList.add(new Student(90));
+        studentList.add(new Student(60));
 
-        products.add(new Product("Laptop", 50000, 4.5));
-        products.add(new Product("Mobile", 20000, 4.8));
-        products.add(new Product("Tablet", 30000, 4.2));
+        Collections.sort(studentList);  // Uses compareTo()
 
-        // User selects: Sort by Price
-        Collections.sort(products, new PriceComparator());
-
-        System.out.println("Sorted by Price:");
-        for (Product p : products) {
-            System.out.println(p);
-        }
-
-        // User selects: Sort by Rating
-        Collections.sort(products, new RatingComparator());
-        
-        System.out.println("\nSorted by Rating:");
-        for (Product p : products) {
-            System.out.println(p);
+        for (Student s : studentList) {
+            System.out.print(s.marks + " ");
         }
     }
 }

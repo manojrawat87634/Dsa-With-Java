@@ -1,31 +1,19 @@
-import java.io.FileWriter;
 import java.io.FileReader;
-import java.io.IOException;
+import java.io.FileWriter;
 
-public class T_02TextFileReadWrite {
-
+public class T_02TextFileReadWrite{
     public static void main(String[] args) {
-        String filePath = "sample.txt";
         try {
-            FileWriter writer = new FileWriter(filePath);
-            writer.write("Hello Java\n");
-            writer.write("File Handling Basics\n");
-            writer.close();
-            System.out.println("Data Written successfully");
-        } catch (IOException e) {
-            System.out.println("Error while writing.");
-        }
-        try {
-            FileReader reader = new FileReader(filePath);
-            int data = reader.read();
-            System.out.print("\nReading file content:");
-            while (data != -1) {
-                System.out.print((char) data);
-                data = reader.read();
-            }
-            reader.close();
-        } catch (IOException e) {
-            System.out.println("Error while reading.");
+             FileWriter writer = new FileWriter("file.txt");
+             writer.write("I am the best I am the upcomming and I am the greatest\n");   
+             writer.write("I am the best");
+             writer.close();
+
+             FileReader reader = new FileReader("file.txt");
+             System.out.println(reader.readAllLines().toString());
+             reader.close();
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
 }

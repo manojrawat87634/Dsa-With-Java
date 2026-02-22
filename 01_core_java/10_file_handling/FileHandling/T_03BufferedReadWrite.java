@@ -1,56 +1,27 @@
-import java.io.BufferedWriter;
 import java.io.BufferedReader;
-import java.io.FileWriter;
+import java.io.BufferedWriter;
 import java.io.FileReader;
-import java.io.IOException;
+import java.io.FileWriter;
 
-public class T_03BufferedReadWrite {
-
+public class T_03BufferedReadWrite{
     public static void main(String[] args) {
-
-        String filePath = "bufferedSample.txt";
-
-        // -------- Writing --------
         try {
-            FileWriter fw = new FileWriter(filePath);
-            BufferedWriter writer = new BufferedWriter(fw);
-
-            writer.write("Hello from Buffered Writer");
-            writer.newLine();
-            writer.write("Learning Buffered step by step");
-            writer.newLine();
-
-            writer.close();   // closes both writer and fw
-
-            System.out.println("Data written successfully.");
-
-        } catch (IOException e) {
-            System.out.println("Error while writing.");
-        }
-
-        // -------- Reading --------
-        try {
-            FileReader fr = new FileReader(filePath);
-            BufferedReader reader = new BufferedReader(fr);
-
-            String line;
-
-            System.out.println("\nReading file content:");
-
-            while (true) {
-                line = reader.readLine();
-
-                if (line == null) {
-                    break;
-                }
-
+            BufferedReader br = new BufferedReader(new FileReader("file.txt"));
+            String line = br.readLine();
+            while (line != null){
                 System.out.println(line);
+                line = br.readLine();
             }
 
-            reader.close();   // closes both reader and fr
+            String myNotes [] = {"Today I have to learn Java", "Today I have to learn python "};
+            BufferedWriter bw = new BufferedWriter(new FileWriter("data.txt"));
+            for (int i = 0; i < myNotes.length; i++){
+                bw.write(myNotes[i] + "\n");
+            }
+            bw.close();
+            br.close();
+        } catch (Exception e) {
 
-        } catch (IOException e) {
-            System.out.println("Error while reading.");
         }
     }
 }
