@@ -1,5 +1,8 @@
 package B_Binary_Tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 class Node {
     int data;
     Node left;
@@ -45,6 +48,25 @@ class BinaryTree {
    public void postorder() {
         _postorder(root);
     }
+
+
+    public void levelOrder(){
+        _levelOrder(root);
+    }
+    private void _levelOrder(Node r) {
+    if (r == null) return;
+
+    Queue<Node> queue = new LinkedList<>();
+    queue.add(r);
+
+    while (!queue.isEmpty()) {
+        Node current = queue.poll();  // dequeue
+        System.out.print(current.data + ", ");
+
+        if (current.left != null) queue.add(current.left);
+        if (current.right != null) queue.add(current.right);
+    }
+}
      private void _inorder(Node r) {
         if (r == null)
             return;
