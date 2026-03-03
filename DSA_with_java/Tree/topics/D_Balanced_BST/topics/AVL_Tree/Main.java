@@ -127,7 +127,7 @@ public void buildTree(int[] arr) {
 
 public class Main {
     public static void main(String[] args) {
-        int[] values = { 50, 40, 39, 45, 40, 60, 80 };
+        int[] values = { 1, 2, 3 };
         AVLTree tree = new AVLTree();
         tree.buildTree(values);
 
