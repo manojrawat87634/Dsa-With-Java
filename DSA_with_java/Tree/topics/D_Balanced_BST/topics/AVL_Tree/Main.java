@@ -17,23 +17,22 @@ class Node {
 class AVLTree {
     private Node root;
 
-    // Public insert method
     public void insert(int value) {
         root = insertRec(root, value);
     }
 
-    // Internal recursive insert
     private Node insertRec(Node node, int value) {
-        if (node == null) return new Node(value);
+        if (node == null)
+            return new Node(value);
 
-        if (value < node.data) node.left = insertRec(node.left, value);
-        else if (value > node.data) node.right = insertRec(node.right, value);
-        else return node; // ignore duplicates
-
-        // Update height
+        if (value < node.data)
+            node.left = insertRec(node.left, value);
+        else if (value > node.data)
+            node.right = insertRec(node.right, value);
+        else
+            return node; 
         node.height = 1 + Math.max(height(node.left), height(node.right));
 
-        // Get balance factor
         int balance = getBalance(node);
 
         // Check 4 AVL cases
@@ -61,13 +60,13 @@ class AVLTree {
         return node;
     }
 
-
     // Build tree from an array
-public void buildTree(int[] arr) {
-    for (int val : arr) {
-        insert(val); // Use the AVL insert method
+    public void buildTree(int[] arr) {
+        for (int val : arr) {
+            insert(val); // Use the AVL insert method
+        }
     }
-}
+
     // Height of a node
     private int height(Node node) {
         return node == null ? 0 : node.height;
@@ -109,6 +108,8 @@ public void buildTree(int[] arr) {
 
         return y;
     }
+
+     
 
     // Inorder traversal (sorted output)
     public void inorder() {

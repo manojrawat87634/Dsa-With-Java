@@ -1,7 +1,5 @@
 package D_Balanced_BST.topics.AVL_Tree.sub_problems.balance_factor;
 
-
-
 class Node {
     int data;
     Node left;
@@ -16,35 +14,34 @@ class Node {
     }
 }
 
-class AVL_Tree{
+class AVL_Tree {
     private Node root;
-    void insert(int value){
-        root = insertRec(root, value);
-    }
-    
-    Node insertRec(Node root, int _pval){
-        if (root == null)  return new Node(_pval); 
-        if (_pval > root.data){
-            root.right = insertRec(root, _pval);
-        }
-        else if (_pval < root.data){
-            root.left = insertRec(root, _pval);
-        }
-        root.height = 1 + Math.max(height(root.left), height(root.right));
-        return root;
+
+    void insert(int val) {
+        root = insertRec(root, val);
     }
 
-    int getBalance(Node root){ 
-        return root == null ? 0 : height(root.left) - height(root.right);  
+    Node insertRec(Node node, int val) {
+        if (node == null)
+            return new Node(val);
+        if (val > node.data) {
+            node.right = insertRec(node, val);
+        } else if (val < node.data) {
+            node.left = insertRec(node, val);
+        }
+        node.height = 1 + Math.max(height(node.left), height(node.right));
+        return node;
     }
-    
-    int height(Node r){
-        return  r == null ? 0 : r.height;
+
+    int getBalance(Node node) {
+        return node == null ? 0 : height(node.left) - height(node.right);
+    }
+
+    int height(Node node) {
+        return node == null ? 0 : node.height;
     }
 }
 
-
-
 public class Main {
-    
+
 }
