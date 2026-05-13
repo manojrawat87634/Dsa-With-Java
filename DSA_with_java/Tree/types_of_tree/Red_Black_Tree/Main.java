@@ -91,14 +91,10 @@ class RedBlackTree {
     void fixInsert(Node node) {
 
         while (node != root && node.parent.color == true) {
-
             Node parent = node.parent;
             Node grandparent = parent.parent;
-
             if (parent == grandparent.left) {
-
                 Node uncle = grandparent.right;
-
                 // Case 1: Uncle is RED
                 if (uncle != null && uncle.color == true) {
                     parent.color = false;
@@ -162,7 +158,6 @@ class RedBlackTree {
         }
     }
 
-   
 }
 
 public class Main {
